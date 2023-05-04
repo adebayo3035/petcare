@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/7cab3097e7.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="data.css">
+
+</head>
+
+<body>
+
+
+  <!-- =================================================== Header section ========================================-->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Logo</div>
+      <div class="nav-links">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+      <div class="burger" onclick="toggleNav()">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <div class="stats-section">
+    <div class="stat">
+      <h2>Number of Employees</h2>
+      <p class="number" data-count="+50">1</p>
+    </div>
+    <div class="stat">
+      <h2>Number of Projects Executed</h2>
+      <p class="number" data-count="+100">1</p>
+    </div>
+  </div>
+
+  <div id="modalBox">
+    <img src="images/brown-puppy-in-the-arms-of-a-person.jpg" alt="Promo Picture">
+    <div class="offer-text">
+      <h2> Get 15% Off </h2>
+      <small>for Every Vaccination. </small>
+      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel explicabo in iusto laborum ut
+        dolorum voluptatibus
+        quidem magni aliquam, dolore autem, mollitia adipisci. At eius fugit ipsam sint. Similique, unde.</p>
+      <form action="" id="subscribe-form">
+        <input type="email" id="subscriber-email" name="subscriber-email" placeholder="E-mail Address" required="">
+        <button type="submit"> Subscribe</button>
+      </form>
+      <i class="fa-solid fa-xmark" id="closeIcon" title="Close Modal" onclick="closeModal()"></i>
+    </div>
+
+  </div>
+
+  <script>
+    const counters = document.querySelectorAll('.number');
+
+    counters.forEach(counter => {
+      const countTo = parseInt(counter.getAttribute('data-count'));
+      const duration = 2000;
+      const increment = Math.ceil(countTo / (duration / 16));
+
+      let currentCount = 1;
+
+      const updateCount = () => {
+        if (currentCount < countTo) {
+          currentCount += increment;
+          counter.textContent = currentCount;
+          setTimeout(updateCount, 16);
+        } else {
+          counter.textContent = countTo;
+        }
+      };
+
+      updateCount();
+    });
+
+    // Navigation Bar Toggler
+    function toggleNav() {
+      var navLinks = document.querySelector('.nav-links');
+      var burger = document.querySelector('.burger');
+      navLinks.classList.toggle('nav-active');
+      burger.classList.toggle('toggle');
+    }
+
+    //<!-- Toggle Modal Box-->
+    let modalBox = document.getElementById('modalBox')
+    document.onmouseleave = () => {
+      modalBox.style.display = "flex"
+    }
+    const closeModal = () => {
+      modalBox.style.display = "none"
+    }
+    // End of Toggle Nav Bar
+
+    // Validate Subscriber Email
+
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+let subscriberEmail = document.getElementById("subscriber-email")
+
+
+const subscribeForm = document.getElementById("subscribe-form");
+
+subscribeForm.addEventListener("submit", function(event){
+event.preventDefault();
+const email = subscriberEmail.value.trim();
+const isValidEmail = emailRegex.test(email);
+  if (isValidEmail) {
+    alert("Your Subscription for 15% Discount has been Received");
+    subscriberEmail.value =""
+  } 
+  else {
+    alert("Email address is not valid");
+  }
+})
+
+  </script>
+</body>
+
+</html>

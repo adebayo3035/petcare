@@ -1,0 +1,84 @@
+@media screen and (min-width : 920px){
+    /* Navigation Bar */
+    .container header{
+        flex-direction: row;
+       /* min-height: fit-content ; */
+    }
+    .container header.cover{
+        height: 3vh;
+    }
+    .container header nav{
+        display: flex;
+        flex-direction: row;
+    }
+    .container header nav.show{
+        display: flex;
+        flex-direction: row;
+    /* End of Navigation Bar Toggler */
+    }
+    .container header .logo{
+        width: fit-content;
+    }
+    .container header .logo a{
+        display: none;
+    }
+    .container header nav ul{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-section, .stats, .services{
+        flex-direction: row;
+    }
+    .stats{
+        width: 90%;
+        justify-content: space-around;
+    }
+    .service-container{
+        width: 100%;
+       
+    }
+    .services{
+        width: 90%;
+    }
+    .services .service{
+        width: 30%;
+        min-height: 360px;
+        padding: auto;
+    }
+    .about-us{
+        flex-direction: row;
+        width: 90%;
+    }
+   .about-us .about-text h2{
+        font-size: 40px;
+    }
+
+    .contact-container .contact-schedule{
+       width: 90%;
+       display: flex;
+       flex-direction: row;
+       padding: 40px;
+    }
+    .contact-container .contact-schedule h2{
+        width: 50%;
+        font-size: 40px;
+        text-align: justify;
+        line-height: 50px;
+    }
+    .contact-container .contact-form{
+        flex-direction: row;
+       
+       
+    }
+    .contact-container .contact-form form h2{
+        font-size: 20px;
+    }
+    .contact-container .contact-form .contact-img img{
+        min-height: fit-content
+    }
+    .footer-container .footer{
+        flex-direction: row;
+    }
+}
