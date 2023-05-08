@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Survery Form</title>
+    <link rel="stylesheet" href="css/booking.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media-query.css">
+</head>
+
+<body>
+    <div class="container">
+            <header id="header">
+                    <div class="logo">
+                        <h1 id="header-text"> PetCare</h1>
+                        <a href="javascript:void(0);" class="icon" id="navIcon">
+                            <i class="fa fa-bars" id="openIcon"></i>
+                            <!-- <i class="fa-solid fa-xmark" id ="closeIcon"></i> -->
+                        </a>
+                    </div>
+                    <nav id="navlist" class="navlist">
+                        <ul>
+                            <li>
+                                <a href="index.html" class="nav-link"> Home </a>
+                            </li>
+                            <li>
+                                <a href="#services" class="nav-link"> Services </a>
+                            </li>
+                            <li>
+                                <a href="#about-us" class="nav-link"> About </a>
+                            </li>
+                            <li>
+                                <a href="data.html" target="_blank" class="nav-link"> Testimonial </a>
+                            </li>
+        
+                        </ul>
+        
+                        <div class="book-schedule">
+                                
+                            <a href="https://wa.me/2348103273279?text=I'm%20interested%20in%20your%20Pet%20Vaccination%20programme" target="_blank" id="schedule"><i class="fa-brands fa-whatsapp" ></i> CHAT WITH US</a>
+                        </div>
+                    </nav>
+                </header>
+
+        <div class="form-container">
+            <main>
+                <h1> PetCare</h1>
+                <h2>Vaccination Booking Form</h2>
+            </main>
+
+            <form action="" method="post">
+                <div class="form-input">
+                    <label class="upper-label">Name <i>*</i></label>
+                    <div class="name-wrapper">
+                        <div class="name-form">
+                            <input type="text" name="firstname" id="firstname" placeholder="Type your answer here">
+                            <label for="firstname" id="firstname-label">First Name</label>
+                        </div>
+                        <div class="name-form">
+                            <input type="text" name="lastname" id="lastname" placeholder="Type your answer here">
+                            <label for="lastname" id="lastname-label">Last Name</label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-input">
+                    <label for="email">Email Address <i>*</i></label>
+                    <input type="email" name="email" placeholder="Johndoe@gmail.com">
+                </div>
+                <div class="form-input">
+                    <label for="phone">Phone Number <i>*</i></label>
+                    <input type="tel" name="phone" placeholder="+234 810 327 3279">
+                </div>
+                <div class="form-input">
+                    <label for="appointment_date">Date of Appointment <i>*</i></label>
+                    <input type="date" name="appointment_date" placeholder="07/05/2023">
+                </div>
+                <div class="form-input">
+                    <label for="appointment_time">Appointment Time <i>*</i></label>
+                    <input type="time" name="appointment_time" placeholder="Select Time">
+                    <i id="select-time"> Please Select Time between 10:00am - 4:00pm</i>
+                </div>
+                <div class="form-input">
+                    <label for="comments">Additional Comments <i>*</i></label>
+                    <textarea name="comments" id="comments" cols="30" rows="10" placeholder="any additional information"
+                        aria-setsize="off"></textarea>
+                </div>
+                <button type="submit" id="schedule_appointment"> Schedule Appointment</button>
+            </form>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

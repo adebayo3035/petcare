@@ -1,0 +1,116 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* font-family: 'Poppins', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+}
+html{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+body{
+    font-family: "Nunito", sans-serif;
+    user-select: none;
+    background-color: #D8EEFE;
+    min-height: 100vh;
+}
+a:hover{
+    transform: scale(1.2);
+}
+.container{
+    border: 2px solid green;
+}
+.form-container{
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    margin: 100px auto;
+    border-radius: 20px;
+    background: #fff;
+    border: 3px solid red;
+}
+.form-container main{
+    width: 100%;
+    border-radius: 20px 20px 0px 0px;
+    background: #c3324d;
+    color: #fff;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Epilogue", sans-serif;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.form-container main h1, .form-container main h2{
+    word-spacing: 2px;
+    padding: 10px 0px; 
+}
+.form-container form{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.form-container form .form-input{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0px;
+    /* border: 2px solid purple; */
+}
+.form-container form .form-input label, p{
+    font-size: 14px;
+    padding: 10px 0px;
+}
+.form-container form .form-input label i{
+    color: red;
+}
+.form-container form .form-input .name-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+.form-container form .form-input .name-wrapper .name-form{
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid green; */
+    width: 47%;
+}
+.form-container form .form-input input{
+    height: 50px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    outline: #c3324d;
+    border-radius: 4px;
+    font-size: 15px;
+}
+.form-container form .form-input input:focus{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.form-container form .form-input textarea{
+    padding: 5px;
+    border: 1px solid #ccc;
+    outline: #c3324d;
+    border-radius: 4px;
+    font-size: 15px;
+}
+#select-time, #firstname-label, #lastname-label{
+    font-size: 14px;
+    font-style: italic;
+    padding: 5px 0px;
+}
+form button{
+    background-color: #c3324d;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+    width: fit-content;
+    margin: 0px auto;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+form button:hover{
+    color: #c3324d;
+    background: #fff;
+    border: 1px solid #c3324d;
+}
