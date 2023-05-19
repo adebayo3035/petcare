@@ -1,3 +1,6 @@
+<?php
+    include('controllers/mycontrollers.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -174,8 +177,8 @@
         <div class="contact-schedule">
             <h2> Get the Best Care for your Pet. Book a schedule now.</h2>
 
-            <button id="schedule" class="scheduleBtn">
-                 <a href="booking.html"> <i class="fa-solid fa-pen"></i>&nbsp; &nbsp;BOOK A SCHEDULE
+            <button id="book-schedule" class="scheduleBtn">
+                 <a href="booking.php"> <i class="fa-solid fa-pen"></i>&nbsp; &nbsp;BOOK A SCHEDULE
             </a></button>
         </div>
 
@@ -184,7 +187,7 @@
                 <img src="images/tabby-cat-touching-persons-palm.jpg" alt="About Pet Care">
             </div>
 
-            <form action="">
+            <form action="controllers/authController.php" method="post">
                 <h3>CONTACT US </h3>
                 <h2> Please Fill Out the Contact Form Below </h2>
                 <div class="form-input">
@@ -204,9 +207,9 @@
                     <textarea name="message" id="message" cols="30" rows="10" placeholder="Enter Your Message Here..."
                         on-re></textarea>
                 </div>
-                <a href="" id="schedule">
+                <button type="submit" name="contactSubmit" id="contactSubmit">
                     SEND MESSAGE<i class="fa-solid fa-arrow-right"></i>
-                </a>
+                </button>
             </form>
         </div>
     </div>
@@ -235,10 +238,26 @@
             </div>
 
             <div class="newsletter">
-                <h3> SUBSCRIBE TO OUR NEWSLETTER</h3>
+                <h3> SUBSCRIBE TO OUR CUSTOMER LIST</h3>
                 <p> Receive exclusive offers and tips for taking care of your pets</p>
-                <form action="">
-                    <input type="email" name="email">
+                <?php   
+                    if(count($error_message) > 0): 
+                ?>
+                        <div class="alert alert-danger">
+                            <?php 
+                                foreach ($error_message as $error): 
+                            ?>
+                                <li>
+                                    <?php
+                                        echo $error; 
+                                    ?>
+                                </li>
+                                <?php endforeach; ?>
+                        </div>
+                <?php endif; ?>
+                <form action = "" method="post">
+                
+                    <input type="email" name="subscriberEmail">
                     <button type="submit" name="subscribeBtn">SUBSCRIBE</button>
                 </form>
             </div>
@@ -255,10 +274,11 @@
             <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel explicabo in iusto laborum ut
                 dolorum voluptatibus
                 quidem magni aliquam, dolore autem, mollitia adipisci. At eius fugit ipsam sint. Similique, unde.</p>
-            <form action="" id="subscribe-form">
+            <form method ="post" action="" id="subscribe-form">
+                  
                 <input type="email" id="subscriber-email" name="subscriber-email" placeholder="E-mail Address"
                     required="">
-                <button type="submit"> Subscribe</button>
+                <button type="submit" name="btnSubscribe"> Subscribe</button>
             </form>
             <i class="fa-solid fa-xmark" id="closeIcon" title="Close Modal" onclick="closeModal()"></i>
         </div>
@@ -267,6 +287,29 @@
 
 
     <script src="main.js"></script>
+
+<?php
+    // $conn = mysqli_connect('localhost', 'root', '', 'petcare');
+    
+    // // ADD SUBSCRIBERS
+    // $customer_email = "";
+    // if(isset($_POST['subscribeBtn'])){
+    //         $customer_email = $_POST['subscriberEmail'];
+    //         echo "You clicked the subscribe button";
+            // $query = "INSERT INTO subscribers (id, subscriber_email) VALUES ('', '$customer_email')";
+            // $Insert_results = mysqli_query($conn, $query);
+            // if($Insert_results){
+            //     $success_message = "You have been added to Our Subscription List";
+            //     echo $success_message;
+            // }
+            // else{
+            //     $failed_message = "Error Adding User to Subscription List";
+            //     echo $failed_message;
+            // }
+            // exit();
+    // }
+?>
+
 </body>
 
 </html>

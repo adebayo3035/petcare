@@ -18,7 +18,7 @@ a:hover{
     transform: scale(1.2);
 }
 .container{
-    border: 2px solid green;
+    /* border: 2px solid green; */
 }
 .form-container{
     display: flex;
@@ -27,7 +27,7 @@ a:hover{
     margin: 100px auto;
     border-radius: 20px;
     background: #fff;
-    border: 3px solid red;
+    /* border: 3px solid red; */
 }
 .form-container main{
     width: 100%;
@@ -113,4 +113,11 @@ form button:hover{
     color: #c3324d;
     background: #fff;
     border: 1px solid #c3324d;
+}
+
+@media screen and (max-width: 700px){
+    .form-container{
+        width: 90%;
+        margin: 100px auto 50px auto;
+    }
 }

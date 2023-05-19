@@ -114,7 +114,7 @@ a:hover{
     font-size: 14px;
    
 }
-.container header nav .book-schedule a#schedule:hover{
+.container header nav .book-schedule button#schedule:hover{
     background-color: #c3324d;
     color: #fff;
 }
@@ -498,10 +498,11 @@ a:hover{
     font-size: 40px;
     color: #094067;
 }
-.contact-container .contact-form form a{
+.contact-container .contact-form form button{
     display: flex;
     align-items: center;
     justify-content: center;
+    align-self: center;
     gap: 8px;
     background-color: #c3324d;
     outline: none;
@@ -517,6 +518,10 @@ a:hover{
     text-decoration: none;
     max-width: fit-content;
     transition: transform 0.5s ease-in-out;
+}
+.contact-container .contact-form form button:hover{
+    background-color: #c3324d;
+    color: #fff;
 }
  
 /* ===================================END OF CONTACT SECTION ===================================== */
