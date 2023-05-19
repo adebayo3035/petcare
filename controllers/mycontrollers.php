@@ -90,34 +90,38 @@ if (empty($_POST['appointment_date'])) {
 if (empty($_POST['appointment_time'])) {
     $error_message['appointment_time'] = "Please Select Appointment Time";
 }
-    // Check if E-mail AlreadY Exist
-// $sql = "SELECT booking_id FROM bookings WHERE booking_id = '$booking_id' LIMIT 1";
-// $result = mysqli_query($conn, $sql);
-// if (mysqli_num_rows($result) > 0) {
-//     $error_message['booking_id'] = "Please Refresh Page and Generate New Booking ID.";
-// }
-if (count($error_message) == 0) {
     $date_of_appointment = date('Y-m-d', strtotime($DOA));
     $time_of_appointment = date('H:i:s', strtotime($TOA));
+    // Check if The Date is Free
+$sql = "SELECT date_of_appointment FROM bookings WHERE date_of_appointment = '$date_of_appointment' LIMIT 2";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    //echo "Please Select another Date, that Date has been Choosen Already";
+     $error_message['booking_id'] = "Please Select another Date, that Date has been Choosen Already.";
+}
+if (count($error_message) == 0) {
+    
     $booking_id = generateRandomText(10);
-    echo $booking_id . "<br/>";
+    // echo $booking_id . "<br/>";
     $query = "INSERT INTO bookings (booking_id, customer_firstname, customer_lastname, customer_email, customer_phone, date_of_appointment, time_of_appointment, comment) 
         VALUES ('$booking_id', '$customer_firstname', '$customer_lastname', '$customer_email', '$customer_phone', '$date_of_appointment', '$time_of_appointment', '$comment')";
     $Insert_results = mysqli_query($conn, $query);
     if ($Insert_results) {
-        $success_message = "You Booking has been Successfully Received. Thank You";
-        $customer_email = "";
-        echo $success_message . "<br/>";
-        echo $date_of_appointment . "<br/>";
-        echo $time_of_appointment;
+        echo "<script>location.replace('../messages/booking_success.php');</script>";
+        // $success_message = "You Booking has been Successfully Received. Thank You";
+        // $customer_email = "";
+        // echo $success_message . "<br/>";
+        // echo $date_of_appointment . "<br/>";
+        // echo $time_of_appointment;
         $booking_id = "";
         
     } else {
-        $failed_message = "Error Creating Booking Please try Again";
-        $customer_email = "";
-        echo $failed_message;
+        echo "<script>location.replace('../messages/booking_fail.php');</script>";
+        // $failed_message = "Error Creating Booking Please try Again";
+        // $customer_email = "";
+        // echo $failed_message;
     }
-    header("Location: ".$_SERVER['booking.php']);
+    // header("Location: ".$_SERVER['booking.php']);
     exit();
 }
 }

@@ -104,20 +104,6 @@ const isValidEmail = emailRegex.test(email);
 //     '{ "firstName":"Anna" , "lastName":"Smith" },' +
 //     '{ "firstName":"Peter" , "lastName":"Jones" } ]}';
 
-// Generate Random Booking ID in booking form
-// program to generate random strings
 
-// declare all characters
-let booking_id = document.getElementById('booking_id').value
-let generate_button = document.getElementById('generateID')
-const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-generate_button.addEventListener(click, ()=>{
-  let booking_id = ' ';
-  let length = 7;
-    const charactersLength = characters.length;
-    for ( let i = 0; i < length; i++ ) {
-        booking_id += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-})
 
 

@@ -1,3 +1,6 @@
+<?php
+    include('controllers/mycontrollers.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +22,7 @@
 <body>
     <div class="container">
         <header id="header">
+            
             <div class="logo">
                 <h1 id="header-text"> PetCare</h1>
                 <a href="javascript:void(0);" class="icon" id="navIcon">
@@ -57,7 +61,23 @@
                 <h2>Vaccination Booking Form</h2>
             </main>
 
-            <form action="controllers/mycontrollers.php" method="post" id="booking-form">
+            <form action="" method="post" id="booking-form">
+            <?php   
+                    if(count($error_message) > 0): 
+                ?>
+                        <div class="alert alert-danger">
+                            
+                            <?php 
+                                foreach ($error_message as $error): 
+                            ?>
+                                <li>
+                                    <?php
+                                        echo $error; 
+                                    ?>
+                                </li>
+                                <?php endforeach; ?>
+                        </div>
+                <?php endif; ?>
                 <!-- <div class="form-input">
                     <label class="upper-label">Booking ID <i>*</i></label>
                     <div class="name-wrapper">
@@ -74,11 +94,11 @@
                     <label class="upper-label">Name <i>*</i></label>
                     <div class="name-wrapper">
                         <div class="name-form">
-                            <input type="text" name="firstname" id="firstname" placeholder="Type your answer here">
+                            <input type="text" name="firstname" id="firstname" placeholder="Type your answer here" required>
                             <label for="firstname" id="firstname-label">First Name</label>
                         </div>
                         <div class="name-form">
-                            <input type="text" name="lastname" id="lastname" placeholder="Type your answer here">
+                            <input type="text" name="lastname" id="lastname" placeholder="Type your answer here" required>
                             <label for="lastname" id="lastname-label">Last Name</label>
                         </div>
                     </div>
@@ -87,28 +107,28 @@
 
                 <div class="form-input">
                     <label for="email">Email Address <i>*</i></label>
-                    <input type="email" name="email" placeholder="Johndoe@gmail.com">
+                    <input type="email" name="email" placeholder="Johndoe@gmail.com" required>
                 </div>
                 <div class="form-input">
                     <label for="phone">Phone Number <i>*</i></label>
-                    <input type="tel" name="phone" placeholder="+234 810 327 3279">
+                    <input type="tel" name="phone" placeholder="+234 810 327 3279" required>
                 </div>
                 <div class="form-input">
                     <label for="appointment_date">Date of Appointment <i>*</i></label>
-                    <input type="date" name="appointment_date" placeholder="07/05/2023">
+                    <input type="date" name="appointment_date" placeholder="07/05/2023" required>
                 </div>
                 <div class="form-input">
                     <label for="appointment_time">Appointment Time <i>*</i></label>
-                    <input type="time" name="appointment_time" placeholder="Select Time">
+                    <input type="time" name="appointment_time" placeholder="Select Time" required>
                     <i id="select-time"> Please Select Time between 10:00am - 4:00pm</i>
                 </div>
                 <div class="form-input">
                     <label for="comments">Additional Comments <i>*</i></label>
                     <textarea name="comment" id="comments" cols="30" rows="10" placeholder="any additional information"
-                        aria-setsize="off"></textarea>
+                        aria-setsize="off" required></textarea>
                         <p class="counter"> Characters: <span id="charCount">0</span></p>
                 </div>
-                <button tyope="submit" id="schedule_appointment" name="schedule_appointment"> Schedule
+                <button type="submit" id="schedule_appointment" name="schedule_appointment"> Schedule
                     Appointment</button>
                     
             </form>
